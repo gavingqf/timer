@@ -8,14 +8,16 @@ time wheel timer.
     // create timer.
     STimeWheelSpace::CTimerRegister timer;
 
-    // add once timer.
+    // add 0 once timer(10s).
 	timer.add_once_timer([](void*) {
 		printf("0 timer out");
 	}, 0, 10 * 1000);
 
-    // add repeated timer
+    // add 1 repeated timer(1s).
 	timer.add_repeated_timer([](void*) {
 		printf("1 timer out");
+
+        // kill the 1 timer.
 		timer.kill_timer(1);
 	}, 1, 1000);
 
