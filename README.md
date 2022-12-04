@@ -18,7 +18,7 @@ time wheel timer.
 	}, 0, 10 * 1000);
 
     // add 1 repeated timer(1s).
-	timer.add_repeated_timer([](void*) {
+	timer.add_repeated_timer([&timer](void*) {
 		printf("1 timer out");
 
         // kill the 1 timer.
