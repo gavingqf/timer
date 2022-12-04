@@ -3,7 +3,11 @@ time wheel timer.
 
 ## example
 ```
+ #include <stdlib.h>
+ #include <chrono>
  #include "time_wheel.h"
+ // define sleepMS.
+ #define sleepMS(x) std::this_thread::sleep_for(std::chrono::microseconds(x))
  void main() {
     // create timer.
     STimeWheelSpace::CTimerRegister timer;
@@ -24,6 +28,7 @@ time wheel timer.
     // run the timer.
 	for (;;) {
 		STimeWheelSpace::CTimeWheel::instance().run();
+		sleepMS(10);
 	}
  }
 ```
